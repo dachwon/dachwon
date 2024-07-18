@@ -53,6 +53,10 @@ h1, h2 {
 }
 /* Overlay */
 
+body {
+    transition: filter 0.5s;
+}
+
 #overlay {
     position: fixed;
     top: 0;
@@ -83,6 +87,10 @@ h1, h2 {
 
 #enter-site:hover {
     background-color: #f0f0f0;
+}
+
+.blur {
+    filter: blur(10px);
 }
 
 /* Animation for elements with the slide-in class */
