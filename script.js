@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     favicon.classList.add('rotating');
 });
 
+// Efeito typewrite
 document.addEventListener("DOMContentLoaded", function() {
     function typeWriter(element, text, delay) {
         let i = 0;
@@ -22,6 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.innerHTML += text.charAt(i);
                 i++;
                 setTimeout(type, delay);
+            } else {
+                setTimeout(() => {
+                    element.innerHTML = "";
+                    i = 0;
+                    type();
+                }, delay * 10); // Delay before restarting
             }
         }
         type();
@@ -35,3 +42,4 @@ document.addEventListener("DOMContentLoaded", function() {
         typeWriter(element, text, 100);
     });
 });
+
