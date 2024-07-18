@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Overlay
 
+// script.js
+
 document.addEventListener('DOMContentLoaded', function() {
     var overlay = document.getElementById('overlay');
     var enterButton = document.getElementById('enter-site');
@@ -32,11 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.play().catch(function(error) {
             console.error("Failed to play audio:", error);
         });
-        // Remove o overlay após a transição
-        setTimeout(function() {
-            overlay.style.display = 'none';
-        }, 500); // Tempo da transição em milissegundos
+        // Remove o overlay
+        overlay.style.display = 'none';
     });
+
+    // Mudança de cores do texto
+    var colorfulText = document.querySelectorAll('.color-change');
+    function changeColors() {
+        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        colorfulText.forEach(function(letter) {
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            letter.style.color = color;
+        });
+    }
+    setInterval(changeColors, 500); // Altere a cada meio segundo
 });
 
 // Efeito typewrite
@@ -65,16 +76,4 @@ document.addEventListener("DOMContentLoaded", function() {
         element.textContent = "";
         typeWriter(element, text, 100);
     });
-});
-
-// Mudança de cores do texto
-    var colorfulText = document.querySelectorAll('.color-change');
-    function changeColors() {
-        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-        colorfulText.forEach(function(letter) {
-            var color = colors[Math.floor(Math.random() * colors.length)];
-            letter.style.color = color;
-        });
-    }
-    setInterval(changeColors, 500); // Altere a cada meio segundo
 });
