@@ -148,6 +148,15 @@ body {
     border-radius: 10px;
 }
 
+/* Adicione um glow branco em volta dos ícones das redes sociais */
+.social-icons a img {
+    transition: box-shadow 0.3s ease;
+}
+
+.social-icons a:hover img {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+}
+
 /* Styles for the Projects section */
 #projects {
     text-align: center;
