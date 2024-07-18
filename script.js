@@ -65,3 +65,15 @@ document.addEventListener("DOMContentLoaded", function() {
         typeWriter(element, text, 100);
     });
 });
+
+// Mudança de cores do texto
+    var colorfulText = document.querySelectorAll('.color-change');
+    function changeColors() {
+        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        colorfulText.forEach(function(letter) {
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            letter.style.color = color;
+        });
+    }
+    setInterval(changeColors, 500); // Altere a cada meio segundo
+});
