@@ -207,6 +207,7 @@ body {
     letter-spacing: .15em;
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
     color: white; /* Definir o texto como branco */
+    display: inline-block; /* Ajustar para evitar distância do cursor */
 }
 
 @keyframes typing {
@@ -221,6 +222,7 @@ body {
 
 .colorful-text span {
     animation: color-change 2s infinite;
+    display: inline-block; /* Garantir que cada letra seja tratada individualmente */
 }
 
 @keyframes color-change {
