@@ -11,7 +11,7 @@ body {
     font-family: 'HoeflerText Roman', Arial, sans-serif;
     background-color: #121212;
     color: #ffffff;
-    cursor: url('images/cat-cursor.cur'), auto;
+    cursor: url('images/cursor.cur'), auto;
 }
 
 header {
