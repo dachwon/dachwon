@@ -51,6 +51,39 @@ h1, h2 {
     height: 40px;
     filter: invert(100%);
 }
+/* Overlay */
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+}
+
+#enter-site {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: none;
+    color: #000;
+    transition: background-color 0.3s;
+}
+
+#enter-site:hover {
+    background-color: #f0f0f0;
+}
 
 /* Animation for elements with the slide-in class */
 @keyframes slideIn {
