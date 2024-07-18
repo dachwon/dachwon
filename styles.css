@@ -90,8 +90,9 @@ body {
     background-color: #f0f0f0;
 }
 
-.blur-content {
+#main-content.blur-content {
     filter: blur(10px);
+    transition: filter 0.5s;
 }
 
 /* Animation for elements with the slide-in class */
