@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     favicon.classList.add('rotating');
 });
 
+// Overlay
+
+document.addEventListener('DOMContentLoaded', function() {
+    var overlay = document.getElementById('overlay');
+    var enterButton = document.getElementById('enter-site');
+
+    enterButton.addEventListener('click', function() {
+        overlay.style.display = 'none';
+    });
+});
+
+
 // Efeito typewrite
 document.addEventListener("DOMContentLoaded", function() {
     function typeWriter(element, text, delay) {
