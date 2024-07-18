@@ -120,34 +120,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     setInterval(changeColors, 500); // Altere a cada meio segundo
 });
-// Bolinhas de navegação
-document.addEventListener("DOMContentLoaded", function() {
-    let currentPage = 0;
-
-    function showPage(pageIndex) {
-        const pages = document.querySelectorAll('.page');
-        const dots = document.querySelectorAll('.dot');
-        
-        pages.forEach((page, index) => {
-            if (index === pageIndex) {
-                page.style.transform = 'translateX(0)';
-            } else {
-                page.style.transform = `translateX(${(index - pageIndex) * 100}%)`;
-            }
-        });
-        
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === pageIndex);
-        });
-        
-        currentPage = pageIndex;
-    }
-
-    // Initialize the first page
-    showPage(currentPage);
-    
-    // Add event listeners to dots
-    document.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.addEventListener('click', () => showPage(index));
-    });
-});
