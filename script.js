@@ -1,70 +1,50 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
+    // Play Music
     const playButton = document.getElementById('play-music');
     const iframe = document.getElementById('youtube-music');
+    if (playButton && iframe) {
+        playButton.addEventListener('click', () => {
+            iframe.style.display = 'block';
+            playButton.style.display = 'none';
+        });
+    }
 
-    playButton.addEventListener('click', () => {
-        iframe.style.display = 'block';
-        playButton.style.display = 'none';
-    });    
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+    // Rotating Favicon
     const favicon = document.getElementById('favicon');
-    favicon.classList.add('rotating');
-});
+    if (favicon) {
+        favicon.classList.add('rotating');
+    }
 
-// Overlay
-document.addEventListener('DOMContentLoaded', function() {
-    var overlay = document.getElementById('overlay');
-    var enterButton = document.getElementById('enter-site');
-    var mainContent = document.getElementById('main-content');
-    var audio = document.getElementById('background-audio');
+    // Overlay
+    const overlay = document.getElementById('overlay');
+    const enterButton = document.getElementById('enter-site');
+    const mainContent = document.getElementById('main-content');
+    const audio = document.getElementById('background-audio');
 
-    // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
-    mainContent.classList.add('blur-content');
+    if (mainContent) {
+        mainContent.classList.add('blur-content');
+    }
 
-    enterButton.addEventListener('click', function() {
-        // Remove a classe de desfoque do conteúdo principal
-        mainContent.classList.remove('blur-content');
-        // Inicia a reprodução do áudio
-        audio.play().catch(function(error) {
-            console.error("Failed to play audio:", error);
+    if (enterButton) {
+        enterButton.addEventListener('click', () => {
+            if (mainContent) {
+                mainContent.classList.remove('blur-content');
+            }
+            if (audio) {
+                audio.play().catch(error => console.error("Failed to play audio:", error));
+            }
+            setTimeout(() => {
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+            }, 500);
         });
-        // Remove o overlay após a transição
-        setTimeout(function() {
-            overlay.style.display = 'none';
-        }, 500); // Tempo da transição em milissegundos
-    });
-});
+    }
 
-// Efeito typewrite e mudança de cores
-document.addEventListener('DOMContentLoaded', function() {
-    var overlay = document.getElementById('overlay');
-    var enterButton = document.getElementById('enter-site');
-    var mainContent = document.getElementById('main-content');
-    var audio = document.getElementById('background-audio');
-
-    // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
-    mainContent.classList.add('blur-content');
-
-    enterButton.addEventListener('click', function() {
-        // Remove a classe de desfoque do conteúdo principal
-        mainContent.classList.remove('blur-content');
-        // Inicia a reprodução do áudio
-        audio.play().catch(function(error) {
-            console.error("Failed to play audio:", error);
-        });
-        // Remove o overlay após a transição
-        setTimeout(function() {
-            overlay.style.display = 'none';
-        }, 500); // Tempo da transição em milissegundos
-    });
-
-    // Função para o efeito typewrite
+    // Typewriter Effect
     function typeWriter(text, element, delay, callback) {
         let charIndex = 0;
-        element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
+        element.innerHTML = '';
 
         function type() {
             if (charIndex < text.length) {
@@ -75,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 charIndex++;
                 setTimeout(type, delay);
             } else if (callback) {
-                setTimeout(callback, 1000); // Pausa antes de iniciar a próxima ação
+                setTimeout(callback, 1000);
             }
         }
         type();
@@ -90,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 charIndex--;
                 setTimeout(erase, delay);
             } else if (callback) {
-                setTimeout(callback, 500); // Pausa antes de iniciar a próxima ação
+                setTimeout(callback, 500);
             }
         }
         erase();
@@ -104,30 +84,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicia o efeito typewrite contínuo
-    var typewriterElement = document.querySelector('.typewriter .colorful-text');
-    var typewriterText = 'estou por aqui ヾ(･|';
-    loopTypewriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
+    const typewriterElement = document.querySelector('.typewriter .colorful-text');
+    const typewriterText = 'estou por aqui ヾ(･|';
+    if (typewriterElement) {
+        loopTypewriter(typewriterText, typewriterElement, 150);
+    }
 
-    // Mudança de cores do texto
+    // Color Change
     function changeColors() {
-        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-        var colorfulText = document.querySelectorAll('.color-change');
-        colorfulText.forEach(function(letter) {
-            var color = colors[Math.floor(Math.random() * colors.length)];
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        const colorfulText = document.querySelectorAll('.color-change');
+        colorfulText.forEach(letter => {
+            const color = colors[Math.floor(Math.random() * colors.length)];
             letter.style.color = color;
         });
     }
-    setInterval(changeColors, 500); // Altere a cada meio segundo
-});
-// Bolinhas de navegação
-document.addEventListener("DOMContentLoaded", function() {
+    setInterval(changeColors, 500);
+
+    // Bolinhas de Navegação
     let currentPage = 0;
 
     function showPage(pageIndex) {
         const pages = document.querySelectorAll('.page');
         const dots = document.querySelectorAll('.dot');
-        
+
         pages.forEach((page, index) => {
             if (index === pageIndex) {
                 page.style.transform = 'translateX(0)';
@@ -135,17 +115,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 page.style.transform = `translateX(${(index - pageIndex) * 100}%)`;
             }
         });
-        
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === pageIndex);
         });
-        
+
         currentPage = pageIndex;
     }
 
     // Initialize the first page
     showPage(currentPage);
-    
+
     // Add event listeners to dots
     document.querySelectorAll('.dot').forEach((dot, index) => {
         dot.addEventListener('click', () => showPage(index));
