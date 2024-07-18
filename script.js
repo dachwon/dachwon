@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.appendChild(span);
                 charIndex++;
                 setTimeout(type, delay);
+            } else {
+                // Reinicia o efeito de typewriter após uma pequena pausa
+                setTimeout(() => typeWriter(text, element, delay), 2000); // Ajuste o delay conforme necessário
             }
         }
         type();
