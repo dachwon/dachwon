@@ -19,17 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     var overlay = document.getElementById('overlay');
     var enterButton = document.getElementById('enter-site');
-    var body = document.querySelector('body');
+    var mainContent = document.getElementById('main-content');
     var audio = document.getElementById('background-audio');
 
-    // Adiciona a classe de desfoque ao conteúdo do body ao carregar a página
-    body.classList.add('blur-content');
+    // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
+    mainContent.classList.add('blur-content');
 
     enterButton.addEventListener('click', function() {
-        // Remove a classe de desfoque do conteúdo do body
-        body.classList.remove('blur-content');
+        // Remove a classe de desfoque do conteúdo principal
+        mainContent.classList.remove('blur-content');
         // Inicia a reprodução do áudio
-        audio.play();
+        audio.play().catch(function(error) {
+            console.error("Failed to play audio:", error);
+        });
         // Remove o overlay após a transição
         setTimeout(function() {
             overlay.style.display = 'none';
