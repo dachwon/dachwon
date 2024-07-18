@@ -146,3 +146,11 @@ h1, h2 {
 .rotating {
     animation: rotateFavicon 2s linear infinite;
 }
+
+/* Styles to hide the SoundCloud iframe */
+#soundcloud-embed {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    border: none;
+}
