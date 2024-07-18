@@ -62,9 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Função para o efeito typewrite
-    function typeWriter(text, element, delay) {
-        element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
+    function typeWriter(text, element, delay, callback) {
         let charIndex = 0;
+        element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
+
         function type() {
             if (charIndex < text.length) {
                 let span = document.createElement('span');
@@ -73,18 +74,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.appendChild(span);
                 charIndex++;
                 setTimeout(type, delay);
-            } else {
-                // Reinicia o efeito de typewriter após uma pequena pausa
-                setTimeout(() => typeWriter(text, element, delay), 2000); // Ajuste o delay conforme necessário
+            } else if (callback) {
+                setTimeout(callback, 1000); // Pausa antes de iniciar a próxima ação
             }
         }
         type();
     }
 
-    // Inicia o efeito typewrite
+    function eraseText(element, delay, callback) {
+        let charIndex = element.textContent.length;
+
+        function erase() {
+            if (charIndex > 0) {
+                element.removeChild(element.lastChild);
+                charIndex--;
+                setTimeout(erase, delay);
+            } else if (callback) {
+                setTimeout(callback, 500); // Pausa antes de iniciar a próxima ação
+            }
+        }
+        erase();
+    }
+
+    function loopTypewriter(text, element, delay) {
+        typeWriter(text, element, delay, function() {
+            eraseText(element, delay, function() {
+                loopTypewriter(text, element, delay);
+            });
+        });
+    }
+
+    // Inicia o efeito typewrite contínuo
     var typewriterElement = document.querySelector('.typewriter .colorful-text');
     var typewriterText = 'estou por aqui ヾ(･|';
-    typeWriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
+    loopTypewriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
 
     // Mudança de cores do texto
     function changeColors() {
