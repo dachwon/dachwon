@@ -39,29 +39,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Efeito typewrite
-document.addEventListener("DOMContentLoaded", function() {
-    function typeWriter(element, text, delay) {
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, delay);
-            } else {
-                setTimeout(() => {
-                    element.innerHTML = "";
-                    typeWriter(element, text, delay);
-                }, delay * 10); // Delay before restarting
-            }
-        }
-        type();
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os elementos com a classe .color-change
+    var colorfulText = document.querySelectorAll('.color-change');
+
+    // Função para alterar as cores do texto
+    function changeColors() {
+        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        colorfulText.forEach(function(letter) {
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            letter.style.color = color;
+        });
     }
 
-    const typewriterElements = document.querySelectorAll(".typewriter");
+    // Configura o intervalo para alterar as cores a cada meio segundo
+    setInterval(changeColors, 500);
 
-    typewriterElements.forEach(element => {
-        const text = element.textContent;
-        element.textContent = "";
-        typeWriter(element, text, 100);
+    // Função para efeito de typewriter (adapte conforme necessário)
+    function typeWriter(element) {
+        const textArray = element.innerHTML.split('');
+        element.innerHTML = '';
+        textArray.forEach((char, index) => {
+            setTimeout(() => {
+                element.innerHTML += char;
+            }, 100 * index); // Ajuste a velocidade conforme necessário
+        });
+    }
+
+    // Aplicar efeito de typewriter
+    var typewriterElements = document.querySelectorAll('.typewriter');
+    typewriterElements.forEach(function(element) {
+        typeWriter(element);
     });
 });
+
