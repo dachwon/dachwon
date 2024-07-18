@@ -37,7 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500); // Tempo da transição em milissegundos
     }
 
-    enterButton.addEventListener('click', enterSite);
+    // Evita que o clique no botão propague para o overlay
+    enterButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        enterSite();
+    });
+
+    // Permite que o clique em qualquer lugar do overlay entre no site
     overlay.addEventListener('click', enterSite);
 });
 
@@ -64,7 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500); // Tempo da transição em milissegundos
     }
 
-    enterButton.addEventListener('click', enterSite);
+    // Evita que o clique no botão propague para o overlay
+    enterButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        enterSite();
+    });
+
+    // Permite que o clique em qualquer lugar do overlay entre no site
     overlay.addEventListener('click', enterSite);
 
     // Função para o efeito typewrite
