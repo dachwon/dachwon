@@ -154,3 +154,17 @@ h1, h2 {
     visibility: hidden;
     border: none;
 }
+
+/* Typewrite */
+.typewriter {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid orange; /* Cursor */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
