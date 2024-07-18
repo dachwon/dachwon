@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 setTimeout(() => {
                     element.innerHTML = "";
-                    i = 0;
-                    type();
+                    typeWriter(element, text, delay);
                 }, delay * 10); // Delay before restarting
             }
         }
@@ -42,4 +41,3 @@ document.addEventListener("DOMContentLoaded", function() {
         typeWriter(element, text, 100);
     });
 });
-
