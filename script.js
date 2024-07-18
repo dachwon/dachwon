@@ -70,5 +70,5 @@ document.addEventListener('DOMContentLoaded', function() {
             letter.style.color = color;
         });
     }
-    setInterval(changeColors, 1); // Altere a cada meio segundo
+    setInterval(changeColors, 100); // Altere a cada meio segundo
 });
