@@ -19,12 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     var overlay = document.getElementById('overlay');
     var enterButton = document.getElementById('enter-site');
+    var body = document.querySelector('body');
+
+    // Adiciona a classe de desfoque ao carregar a página
+    body.classList.add('blur');
 
     enterButton.addEventListener('click', function() {
-        overlay.style.display = 'none';
+        // Remove a classe de desfoque
+        body.classList.remove('blur');
+        // Remove o overlay após a transição
+        setTimeout(function() {
+            overlay.style.display = 'none';
+        }, 500); // Tempo da transição em milissegundos
     });
 });
-
 
 // Efeito typewrite
 document.addEventListener("DOMContentLoaded", function() {
