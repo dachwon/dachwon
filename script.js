@@ -38,23 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleciona os elementos uma vez
-    var colorfulText = document.querySelectorAll('.color-change');
-
-    // Mudança de cores do texto
-    function changeColors() {
-        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-        colorfulText.forEach(function(letter) {
-            var color = colors[Math.floor(Math.random() * colors.length)];
-            letter.style.color = color;
-        });
-    }
-
-    // Configura o intervalo para alterar as cores a cada meio segundo
-    setInterval(changeColors, 500);
-});
-
 // Efeito typewrite
 document.addEventListener("DOMContentLoaded", function() {
     function typeWriter(element, text, delay) {
