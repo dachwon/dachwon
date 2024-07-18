@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         pages.forEach((page, index) => {
             if (index === pageIndex) {
-                page.style.transform = 'translateX(0)';
+                page.classList.add('active');
             } else {
-                page.style.transform = `translateX(${(index - pageIndex) * 100}%)`;
+                page.classList.remove('active');
             }
         });
 
