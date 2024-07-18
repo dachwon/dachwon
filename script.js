@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Mudança de cores do texto
-    var colorfulText = document.querySelectorAll('.colorful-text span');
+    var colorfulText = document.querySelectorAll('.color-change');
     function changeColors() {
         var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
         colorfulText.forEach(function(letter) {
