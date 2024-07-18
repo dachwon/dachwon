@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para o efeito typewrite
     function typeWriter(text, element, delay) {
+        element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
         let charIndex = 0;
         function type() {
             if (charIndex < text.length) {
