@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
     mainContent.classList.add('blur-content');
 
-    enterButton.addEventListener('click', function() {
+    function enterSite() {
         // Remove a classe de desfoque do conteúdo principal
         mainContent.classList.remove('blur-content');
         // Inicia a reprodução do áudio
@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             overlay.style.display = 'none';
         }, 500); // Tempo da transição em milissegundos
-    });
+    }
+
+    enterButton.addEventListener('click', enterSite);
+    overlay.addEventListener('click', enterSite);
 });
 
 // Efeito typewrite e mudança de cores
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
     mainContent.classList.add('blur-content');
 
-    enterButton.addEventListener('click', function() {
+    function enterSite() {
         // Remove a classe de desfoque do conteúdo principal
         mainContent.classList.remove('blur-content');
         // Inicia a reprodução do áudio
@@ -59,7 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             overlay.style.display = 'none';
         }, 500); // Tempo da transição em milissegundos
-    });
+    }
+
+    enterButton.addEventListener('click', enterSite);
+    overlay.addEventListener('click', enterSite);
 
     // Função para o efeito typewrite
     function typeWriter(text, element, delay, callback) {
