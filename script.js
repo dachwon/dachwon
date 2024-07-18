@@ -36,8 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.display = 'none';
         }, 500); // Tempo da transição em milissegundos
     });
-// Mudança de cores do texto
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os elementos uma vez
     var colorfulText = document.querySelectorAll('.color-change');
+
+    // Mudança de cores do texto
     function changeColors() {
         var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
         colorfulText.forEach(function(letter) {
@@ -45,7 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
             letter.style.color = color;
         });
     }
-    setInterval(changeColors, 500); // Altere a cada meio segundo
+
+    // Configura o intervalo para alterar as cores a cada meio segundo
+    setInterval(changeColors, 500);
 });
 
 // Efeito typewrite
