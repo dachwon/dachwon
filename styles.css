@@ -229,6 +229,10 @@ body {
     100% { color: purple; }
 }
 
+.colorful-text {
+    display: inline-block;
+}
+
 .color-change {
-    animation: color-change 2s infinite;
+    transition: color 0.5s;
 }
