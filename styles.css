@@ -1,9 +1,17 @@
-/* styles.css */
+@font-face {
+    font-family: 'HoeflerText Roman';
+    src: url('fonts/HoeflerText-Roman.woff2') format('woff2'),
+         url('fonts/HoeflerText-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     font-family: 'HoeflerText Roman', Arial, sans-serif;
     background-color: #121212;
     color: #ffffff;
+    cursor: url('images/cursor.cur'), auto;
 }
 
 header {
@@ -14,6 +22,7 @@ header {
 
 h1, h2 {
     color: #ffffff;
+    font-family: 'HoeflerText Roman', Arial, sans-serif;
 }
 
 #social-media {
@@ -42,6 +51,7 @@ h1, h2 {
     height: 40px;
     filter: invert(100%);
 }
+/* Overlay */
 
 body {
     transition: filter 0.5s;
@@ -63,7 +73,7 @@ body {
 .overlay-content {
     text-align: center;
     color: white;
-    z-index: 1001;
+    z-index: 1001; /* Certifique-se de que o conteúdo do overlay esteja acima do desfoque */
 }
 
 #enter-site {
@@ -81,10 +91,11 @@ body {
 }
 
 #main-content.blur-content {
-    filter: blur(20px);
+    filter: blur(20px); /* Aumente o valor do desfoque aqui */
     transition: filter 0.5s;
 }
 
+/* Animation for elements with the slide-in class */
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -100,6 +111,7 @@ body {
     animation: slideIn 1s ease-out;
 }
 
+/* Animações adicionais */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -126,14 +138,17 @@ body {
     animation: zoomIn 0.5s ease-in-out;
 }
 
+/* Música */
 #youtube-music {
     display: none;
 }
 
+/* Discord widget */
 #discord-widget iframe {
     border-radius: 10px;
 }
 
+/* Styles for the Projects section */
 #projects {
     text-align: center;
     padding: 2rem 0;
@@ -161,6 +176,7 @@ body {
     filter: invert(100%);
 }
 
+/* Rotation animation for the favicon */
 @keyframes rotateFavicon {
     from {
         transform: rotate(0deg);
@@ -174,6 +190,7 @@ body {
     animation: rotateFavicon 2s linear infinite;
 }
 
+/* Styles to hide the SoundCloud iframe */
 #soundcloud-embed {
     width: 0;
     height: 0;
@@ -181,15 +198,16 @@ body {
     border: none;
 }
 
+/* Typewriter effect */
 .typewriter {
     overflow: hidden;
-    border-right: .15em solid white;
+    border-right: .15em solid white; /* Cursor branco */
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
     animation: blink-caret .75s step-end infinite;
-    color: white;
-    display: inline-block;
+    color: white; /* Texto branco */
+    display: inline-block; /* Garantir que o cursor fique próximo ao texto */
 }
 
 @keyframes typing {
@@ -219,6 +237,7 @@ body {
     transition: color 0.5s;
 }
 
+/* Bolinhas de navegação */
 .nav-dots {
     text-align: center;
     margin-top: 10px;
@@ -243,29 +262,16 @@ body {
     display: flex;
     overflow: hidden;
     width: 100%;
-    position: relative;
 }
 
 .page {
     min-width: 100%;
     transition: transform 0.5s ease-in-out;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.page.active {
-    display: flex;
-}
-
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
 .rounded-image {
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    margin-right: 20px;
 }
