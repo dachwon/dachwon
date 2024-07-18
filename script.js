@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var enterButton = document.getElementById('enter-site');
     var body = document.querySelector('body');
 
-    // Adiciona a classe de desfoque ao carregar a página
-    body.classList.add('blur');
+    // Adiciona a classe de desfoque ao conteúdo do body ao carregar a página
+    body.classList.add('blur-content');
 
     enterButton.addEventListener('click', function() {
-        // Remove a classe de desfoque
-        body.classList.remove('blur');
+        // Remove a classe de desfoque do conteúdo do body
+        body.classList.remove('blur-content');
         // Remove o overlay após a transição
         setTimeout(function() {
             overlay.style.display = 'none';
