@@ -73,6 +73,7 @@ body {
 .overlay-content {
     text-align: center;
     color: white;
+    z-index: 1001; /* Certifique-se de que o conteúdo do overlay esteja acima do desfoque */
 }
 
 #enter-site {
@@ -89,7 +90,7 @@ body {
     background-color: #f0f0f0;
 }
 
-.blur {
+.blur-content {
     filter: blur(10px);
 }
 
