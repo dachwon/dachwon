@@ -198,16 +198,16 @@ body {
     border: none;
 }
 
-/* Typewrite */
+/* Typewriter effect */
 .typewriter {
     overflow: hidden;
-    border-right: .15em solid white; /* Alterar o cursor para branco */
+    border-right: .15em solid white; /* Cursor branco */
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-    color: white; /* Definir o texto como branco */
-    display: inline-block; /* Ajustar para evitar distância do cursor */
+    color: white; /* Texto branco */
+    display: inline-block; /* Garantir que o cursor fique próximo ao texto */
 }
 
 @keyframes typing {
@@ -221,7 +221,6 @@ body {
 }
 
 .colorful-text span {
-    animation: color-change 2s infinite;
     display: inline-block; /* Garantir que cada letra seja tratada individualmente */
 }
 
@@ -232,4 +231,8 @@ body {
     60% { color: green; }
     80% { color: blue; }
     100% { color: purple; }
+}
+
+.color-change {
+    animation: color-change 2s infinite;
 }
