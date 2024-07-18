@@ -91,7 +91,7 @@ body {
 }
 
 #main-content.blur-content {
-    filter: blur(10px);
+    filter: blur(20px); /* Aumente o valor do desfoque aqui */
     transition: filter 0.5s;
 }
 
