@@ -200,14 +200,34 @@ body {
 
 /* Typewrite */
 .typewriter {
-    display: inline-block;
-    white-space: nowrap;
     overflow: hidden;
-    border-right: 0.15em solid orange; /* Cursor */
-    animation: blink-caret 0.75s step-end infinite;
+    border-right: .15em solid white; /* Alterar o cursor para branco */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    color: white; /* Definir o texto como branco */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: orange; }
+    50% { border-color: white; }
+}
+
+.colorful-text span {
+    animation: color-change 2s infinite;
+}
+
+@keyframes color-change {
+    0% { color: red; }
+    20% { color: orange; }
+    40% { color: yellow; }
+    60% { color: green; }
+    80% { color: blue; }
+    100% { color: purple; }
 }
