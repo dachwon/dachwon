@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Efeito typewrite
+// Efeito typewrite e mudança de cores
 document.addEventListener('DOMContentLoaded', function() {
     var overlay = document.getElementById('overlay');
     var enterButton = document.getElementById('enter-site');
@@ -61,14 +61,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500); // Tempo da transição em milissegundos
     });
 
+    // Função para o efeito typewrite
+    function typeWriter(text, element, delay) {
+        let charIndex = 0;
+        function type() {
+            if (charIndex < text.length) {
+                let span = document.createElement('span');
+                span.textContent = text[charIndex];
+                span.classList.add('color-change');
+                element.appendChild(span);
+                charIndex++;
+                setTimeout(type, delay);
+            }
+        }
+        type();
+    }
+
+    // Inicia o efeito typewrite
+    var typewriterElement = document.querySelector('.typewriter .colorful-text');
+    var typewriterText = 'estou por aqui ヾ(･|';
+    typeWriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
+
     // Mudança de cores do texto
-    var colorfulText = document.querySelectorAll('.color-change');
     function changeColors() {
         var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        var colorfulText = document.querySelectorAll('.color-change');
         colorfulText.forEach(function(letter) {
             var color = colors[Math.floor(Math.random() * colors.length)];
             letter.style.color = color;
         });
     }
-    setInterval(changeColors, 100); // Altere a cada meio segundo
+    setInterval(changeColors, 500); // Altere a cada meio segundo
 });
