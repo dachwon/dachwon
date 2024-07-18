@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'HoeflerText Roman';
+    src: url('fonts/HoeflerText-Roman.woff2') format('woff2'),
+         url('fonts/HoeflerText-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'HoeflerText Roman', Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #1f1f1f;
+}
+
+h1, h2 {
+    color: #ffffff;
+    font-family: 'HoeflerText Roman', Arial, sans-serif;
+}
+
+#social-media {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: fit-content;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+}
+
+/* Animation for elements with the slide-in class */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 1s ease-out;
+}
+
+/* Animações adicionais */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+/* Música */
+#youtube-music {
+    display: none;
+}
+
+/* Discord widget */
+#discord-widget iframe {
+    border-radius: 10px;
+}
+
+/* Styles for the Projects section */
+#projects {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.projects-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: fit-content;
+}
+
+.projects-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.projects-icons a img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+}
+
+/* Rotation animation for the favicon */
+@keyframes rotateFavicon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotateFavicon 2s linear infinite;
+}
