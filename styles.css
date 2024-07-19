@@ -52,14 +52,21 @@ h1, h2 {
     filter: invert(100%);
 }
 /* Efeitos no cursor */
-.trail {
+.particle {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: rgba(255, 255, 255, 1); /* Opacidade total para branco completo */
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     pointer-events: none;
-    transition: transform 0.1s, opacity 0.1s;
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
 }
 
 /* Overlay */
