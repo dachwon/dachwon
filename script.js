@@ -134,14 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Efeitos no cursor
-document.addEventListener('mousemove', function(e) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.left = `${e.clientX}px`;
-    particle.style.top = `${e.clientY}px`;
-    document.body.appendChild(particle);
+const trail = [];
+for (let i = 0; i < 10; i++) {
+    const span = document.createElement('span');
+    span.classList.add('trail');
+    document.body.appendChild(span);
+    trail.push(span);
+}
 
-    setTimeout(() => {
-        particle.remove();
-    }, 1000); // Remove a partícula após 1 segundo
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 });
+
+function animateTrail() {
+    trail.forEach((span, index) => {
+        span.style.left = `${mouseX - 5}px`;
+        span.style.top = `${mouseY - 5}px`;
+        span.style.transform = `scale(${1 - index / 10})`;
+        span.style.opacity = `${1 - index / 10}`;
+    });
+
+    trail.unshift(trail.pop());
+    requestAnimationFrame(animateTrail);
+}
+
+animateTrail();
