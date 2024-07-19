@@ -1,20 +1,4 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const playButton = document.getElementById('play-music');
-    const iframe = document.getElementById('youtube-music');
-
-    if (playButton && iframe) {
-        playButton.addEventListener('click', () => {
-            iframe.style.display = 'block';
-            playButton.style.display = 'none';
-        });
-    }
-
-    const favicon = document.getElementById('favicon');
-    if (favicon) {
-        favicon.classList.add('rotating');
-    }
-
     // Função para obter o IP do usuário e atualizar o texto
     function updateWelcomeMessageWithIP() {
         fetch('https://api.ipify.org?format=json')
@@ -31,10 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateWelcomeMessageWithIP();
-});
-
-// Overlay
-document.addEventListener('DOMContentLoaded', function() {
+    
+    const playButton = document.getElementById('play-music');
+    const iframe = document.getElementById('youtube-music');
+    
+    if (playButton && iframe) {
+        playButton.addEventListener('click', () => {
+            iframe.style.display = 'block';
+            playButton.style.display = 'none';
+        });
+    }
+    
+    const favicon = document.getElementById('favicon');
+    if (favicon) {
+        favicon.classList.add('rotating');
+    }
+    
     var overlay = document.getElementById('overlay');
     var enterButton = document.getElementById('enter-site');
     var mainContent = document.getElementById('main-content');
@@ -76,12 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (overlay) {
         overlay.addEventListener('click', enterSite);
     }
-});
-
-// Efeito typewrite e mudança de cores
-document.addEventListener('DOMContentLoaded', function() {
-    var typewriterElement = document.querySelector('.typewriter .colorful-text');
-    var typewriterText = 'estou por aqui ヾ(･|';
 
     // Função para o efeito typewrite
     function typeWriter(text, element, delay, callback) {
@@ -128,10 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicia o efeito typewrite contínuo
+    var typewriterElement = document.querySelector('.typewriter .colorful-text');
+    var typewriterText = 'estou por aqui ヾ(･|';
     loopTypewriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
 
-    // Mudança de cores do texto
     function changeColors() {
         var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
         var colorfulText = document.querySelectorAll('.color-change');
