@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 const welcomeMessage = document.getElementById('welcome-message');
                 if (welcomeMessage) {
-                    welcomeMessage.textContent = `Seu IP: ${data.ip}`;
+                    welcomeMessage.textContent = `${data.ip}`;
                 }
             })
             .catch(error => {
