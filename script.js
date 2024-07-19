@@ -3,21 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const playButton = document.getElementById('play-music');
     const iframe = document.getElementById('youtube-music');
 
-    playButton.addEventListener('click', () => {
-        iframe.style.display = 'block';
-        playButton.style.display = 'none';
-    });
+    if (playButton && iframe) {
+        playButton.addEventListener('click', () => {
+            iframe.style.display = 'block';
+            playButton.style.display = 'none';
+        });
+    }
 
     const favicon = document.getElementById('favicon');
-    favicon.classList.add('rotating');
-    
+    if (favicon) {
+        favicon.classList.add('rotating');
+    }
+
     // Função para obter o IP do usuário e atualizar o texto
     function updateWelcomeMessageWithIP() {
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
                 const welcomeMessage = document.getElementById('welcome-message');
-                welcomeMessage.textContent = `Seu IP: ${data.ip}`;
+                if (welcomeMessage) {
+                    welcomeMessage.textContent = `Seu IP: ${data.ip}`;
+                }
             })
             .catch(error => {
                 console.error('Error fetching IP:', error);
@@ -34,71 +40,58 @@ document.addEventListener('DOMContentLoaded', function() {
     var mainContent = document.getElementById('main-content');
     var audio = document.getElementById('background-audio');
 
-    // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
-    mainContent.classList.add('blur-content');
+    if (mainContent) {
+        // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
+        mainContent.classList.add('blur-content');
+    }
 
     function enterSite() {
         // Remove a classe de desfoque do conteúdo principal
-        mainContent.classList.remove('blur-content');
+        if (mainContent) {
+            mainContent.classList.remove('blur-content');
+        }
         // Inicia a reprodução do áudio
-        audio.play().catch(function(error) {
-            console.error("Failed to play audio:", error);
-        });
+        if (audio) {
+            audio.play().catch(function(error) {
+                console.error("Failed to play audio:", error);
+            });
+        }
         // Remove o overlay após a transição
-        setTimeout(function() {
-            overlay.style.display = 'none';
-        }, 500); // Tempo da transição em milissegundos
+        if (overlay) {
+            setTimeout(function() {
+                overlay.style.display = 'none';
+            }, 500); // Tempo da transição em milissegundos
+        }
     }
 
     // Evita que o clique no botão propague para o overlay
-    enterButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        enterSite();
-    });
+    if (enterButton) {
+        enterButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            enterSite();
+        });
+    }
 
     // Permite que o clique em qualquer lugar do overlay entre no site
-    overlay.addEventListener('click', enterSite);
+    if (overlay) {
+        overlay.addEventListener('click', enterSite);
+    }
 });
 
 // Efeito typewrite e mudança de cores
 document.addEventListener('DOMContentLoaded', function() {
-    var overlay = document.getElementById('overlay');
-    var enterButton = document.getElementById('enter-site');
-    var mainContent = document.getElementById('main-content');
-    var audio = document.getElementById('background-audio');
-
-    // Adiciona a classe de desfoque ao conteúdo principal ao carregar a página
-    mainContent.classList.add('blur-content');
-
-    function enterSite() {
-        // Remove a classe de desfoque do conteúdo principal
-        mainContent.classList.remove('blur-content');
-        // Inicia a reprodução do áudio
-        audio.play().catch(function(error) {
-            console.error("Failed to play audio:", error);
-        });
-        // Remove o overlay após a transição
-        setTimeout(function() {
-            overlay.style.display = 'none';
-        }, 500); // Tempo da transição em milissegundos
-    }
-
-    // Evita que o clique no botão propague para o overlay
-    enterButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        enterSite();
-    });
-
-    // Permite que o clique em qualquer lugar do overlay entre no site
-    overlay.addEventListener('click', enterSite);
+    var typewriterElement = document.querySelector('.typewriter .colorful-text');
+    var typewriterText = 'estou por aqui ヾ(･|';
 
     // Função para o efeito typewrite
     function typeWriter(text, element, delay, callback) {
         let charIndex = 0;
-        element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
+        if (element) {
+            element.innerHTML = ''; // Limpa o conteúdo do elemento antes de começar
+        }
 
         function type() {
-            if (charIndex < text.length) {
+            if (element && charIndex < text.length) {
                 let span = document.createElement('span');
                 span.textContent = text[charIndex];
                 span.classList.add('color-change');
@@ -113,10 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function eraseText(element, delay, callback) {
-        let charIndex = element.textContent.length;
+        let charIndex = element ? element.textContent.length : 0;
 
         function erase() {
-            if (charIndex > 0) {
+            if (element && charIndex > 0) {
                 element.removeChild(element.lastChild);
                 charIndex--;
                 setTimeout(erase, delay);
@@ -136,8 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Inicia o efeito typewrite contínuo
-    var typewriterElement = document.querySelector('.typewriter .colorful-text');
-    var typewriterText = 'estou por aqui ヾ(･|';
     loopTypewriter(typewriterText, typewriterElement, 150); // Ajuste o delay conforme necessário
 
     // Mudança de cores do texto
