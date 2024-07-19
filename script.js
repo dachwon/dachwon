@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Efeitos no cursor
+// Cria um array para armazenar os elementos de rastro
 const trail = [];
 for (let i = 0; i < 10; i++) {
     const span = document.createElement('span');
@@ -144,6 +145,7 @@ for (let i = 0; i < 10; i++) {
 
 let mouseX = 0, mouseY = 0;
 
+// Atualiza as coordenadas do mouse quando ele se move
 document.addEventListener('mousemove', function(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -157,8 +159,10 @@ function animateTrail() {
         span.style.opacity = `${1 - index / 10}`;
     });
 
+    // Move o último elemento para a frente do array
     trail.unshift(trail.pop());
     requestAnimationFrame(animateTrail);
 }
 
+// Inicia a animação do rastro
 animateTrail();
