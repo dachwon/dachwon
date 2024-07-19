@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.addEventListener('click', enterSite);
 });
 
+// Obter e exibir o IP do usuário
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const welcomeMessage = document.getElementById('welcome-message');
+            welcomeMessage.textContent = `Seu IP: ${data.ip}`;
+        })
+        .catch(error => {
+            console.error('Error fetching IP:', error);
+        });
+
 // Efeito typewrite e mudança de cores
 document.addEventListener('DOMContentLoaded', function() {
     var overlay = document.getElementById('overlay');
