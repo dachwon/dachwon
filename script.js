@@ -45,9 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Permite que o clique em qualquer lugar do overlay entre no site
     overlay.addEventListener('click', enterSite);
-});
 
-// Obter e exibir o IP do usuário
+    // Obter e exibir o IP do usuário
     fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
@@ -57,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error fetching IP:', error);
         });
+});
 
 // Efeito typewrite e mudança de cores
 document.addEventListener('DOMContentLoaded', function() {
@@ -89,6 +89,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Permite que o clique em qualquer lugar do overlay entre no site
     overlay.addEventListener('click', enterSite);
+
+    // Obter e exibir o IP do usuário
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const welcomeMessage = document.getElementById('welcome-message');
+            welcomeMessage.textContent = `Seu IP: ${data.ip}`;
+        })
+        .catch(error => {
+            console.error('Error fetching IP:', error);
+        });
 
     // Função para o efeito typewrite
     function typeWriter(text, element, delay, callback) {
